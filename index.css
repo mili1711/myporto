@@ -1,119 +1,147 @@
-body {
-  text-align: center;
-  font-family: "Bahiana Regular";
-}
-.background {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.foto {
-  position: relative;
-  width: 100%;
-  height: 750px;
+:root{
+  --bg:#0b1020;
+  --panel:#111a33;
+  --text:#e8ecff;
+  --muted:#b8c0ff;
+  --accent:#7c5cff;
+  --border:rgba(255,255,255,.10);
 }
 
-.jersey-15-regular {
-  font-family: "Jersey 15", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(124,92,255,.35), transparent 60%),
+              radial-gradient(900px 500px at 90% 0%, rgba(0,184,255,.22), transparent 55%),
+              var(--bg);
+  color:var(--text);
+  line-height:1.55;
 }
 
-.maintext1 {
-  position: absolute;
-  font-family: "Jersey 15", static;
-  color: #d2abe5;
-  font-size: 5rem;
-  padding-bottom: 10%;
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.9}
+
+.site-header{
+  position:sticky; top:0; z-index:10;
+  backdrop-filter: blur(10px);
+  background: rgba(11,16,32,.65);
+  border-bottom: 1px solid var(--border);
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 14px 18px;
 }
 
-.maintext2 {
-  position: absolute;
-  font-family: "Bahiana Regular";
-  color: #d2abe5;
-  padding-top: 8%;
-  font-size: 1.5rem;
-  padding-bottom: 10%;
-  padding-right: 12%;
+.logo{font-weight:800; letter-spacing:.2px}
+.logo span{color:var(--accent)}
+.nav{display:flex; gap:14px; flex-wrap:wrap}
+.nav a{padding:8px 10px; border-radius:10px; color:var(--muted)}
+.nav a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+
+main{max-width:1100px; margin:0 auto; padding: 28px 18px 60px}
+
+.hero{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:18px;
+  padding: 20px 0 6px;
 }
-.nav-link:hover {
-  color: rgb(219, 137, 228) !important;
+@media (max-width: 880px){
+  .hero{grid-template-columns:1fr}
 }
 
-.nav-link {
-  color: rgb(9, 24, 229);
-  font-family: "Jersey 15", static;
-  font-size: 1.3rem;
+.kicker{color:var(--muted); margin:0 0 6px}
+h1{font-size: clamp(32px, 4vw, 48px); margin: 0 0 10px}
+.accent{color:var(--accent)}
+.lead{color:var(--muted); font-size: 1.05rem; margin: 0 0 18px}
+
+.cta{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  border:1px solid var(--border);
+  padding:10px 14px;
+  border-radius:14px;
+  background: rgba(255,255,255,.04);
+}
+.btn.primary{
+  background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(124,92,255,.65));
+  border-color: rgba(124,92,255,.6);
+}
+.btn.small{padding:8px 12px; border-radius:12px; font-size:.95rem}
+
+.mini{color:var(--muted); font-size:.95rem}
+
+.hero-card{
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  border-radius:18px;
+  overflow:hidden;
+}
+.avatar{
+  width:100%;
+  height: 260px;
+  object-fit: cover;
+  display:block;
+  border-bottom:1px solid var(--border);
+}
+.hero-card-text{padding:14px 14px 16px}
+.hero-card-text h3{margin:0 0 8px}
+.hero-card-text ul{margin:0; padding-left:18px; color:var(--muted)}
+
+.section{padding: 26px 0}
+.section h2{margin:0 0 10px; font-size: 1.35rem}
+.section p{margin:0; color:var(--muted)}
+
+.section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:10px; flex-wrap:wrap}
+.muted{color:var(--muted)}
+
+.chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+.chip{
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  padding:8px 12px;
+  border-radius:999px;
+  color:var(--text);
 }
 
-.justify-content-center {
-  padding-right: 72%;
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:14px;
+  margin-top:12px;
+}
+@media (max-width: 900px){
+  .grid{grid-template-columns:1fr}
 }
 
-/*About me*/
-.about {
-  display: block;
+.card{
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  border-radius:18px;
+  overflow:hidden;
+}
+.card img{
+  width:100%;
+  height: 180px;
+  object-fit: cover;
+  display:block;
+  border-bottom:1px solid var(--border);
+}
+.card-body{padding:14px}
+.card-body h3{margin:0 0 6px}
+.card-body p{margin:0 0 12px; color:var(--muted)}
+.card-actions{display:flex; gap:10px; flex-wrap:wrap}
+
+.contact-box{
+  margin-top:10px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  border-radius:18px;
+  padding:14px;
 }
 
-.foto2 {
-  position: relative;
-  width: 250px;
-  height: 200px;
-  border-radius: 50%;
-  margin-top: 10.5%;
-  margin-bottom: 1%;
-}
-.abouttext {
-  position: absolute;
-  margin-top: 20%;
+.footer{
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  padding:18px;
+  text-align:center;
 }
 
-.metext {
-  width: 30%;
-  margin: auto;
-  line-height: 2;
-  font-size: 1.1rem;
-  font-family: "Bahiana Regular";
-}
-
-.text2 {
-  padding-left: 2%;
-}
-
-hr {
-  border: dotted rgb(156, 184, 198) 6px;
-  width: 4%;
-}
-/*Skills*/
-
-.skills {
-  margin-top: 12%;
-  margin-bottom: 10%;
-  font-size: 4rem;
-  text-decoration: overline;
-  font-family: "Jersey 10", static;
-}
-
-/*Work*/
-.containerwork {
-  margin-top: 16%;
-}
-
-.containerflex {
-  display: grid;
-  width: 60%;
-  height: 70%;
-  margin-left: 20%;
-}
-
-.workfoto {
-  margin-top: 7%;
-  margin-bottom: 2%;
-}
-
-.textwork {
-  font-size: 4rem;
-  margin-top: 2%;
-  font-family: "Jersey 10", static;
-}
